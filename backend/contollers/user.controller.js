@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken"
 
 
 export const register=async(req,res)=>{
-    const {deviceCode, email, password} = req.body;
+    const {deviceCode, email, phone, password} = req.body;
     try{
         if(!deviceCode || !email || !password){
             return res.status(400).json({
@@ -16,6 +16,7 @@ export const register=async(req,res)=>{
         await User.create({
             deviceCode,
             email,
+            phone,
             password: hashedPassword
         })  
         return res.status(201).json({

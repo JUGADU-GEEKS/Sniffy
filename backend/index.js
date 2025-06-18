@@ -6,6 +6,7 @@ dotenv.config();
 import connectDB from "./utils/db.js";
 
 import userRouter from './routes/user.routes.js'
+import alertRouter from './routes/alert.routes.js'
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -26,6 +27,7 @@ app.get("/", (req,res)=>{
 })
 
 app.use('/user', userRouter)
+app.use('/alert', alertRouter)
 
 app.listen(port, ()=>{
     connectDB();

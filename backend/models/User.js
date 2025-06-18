@@ -3,6 +3,7 @@ import mongoose from "mongoose"
 const userSchema = new mongoose.Schema({
     deviceCode : {type: String, unique: true, required: true},
     email : {type:String, required:true},
+    phone : {type:Number, required:true},
     password : {type:String, required:true},
     liveStatus : {type:String, default:"Normal"},
     alerts: [{type:Object}]
