@@ -1,12 +1,10 @@
 import express from "express";
-import { receiveAlert } from "../contollers/alert.controller.js";
+import { last5Alerts, receiveAlert } from "../contollers/alert.controller.js";
 
 const router = express.Router();
 
 router.post("/alert", receiveAlert);
-router.get("/ping", (req, res) => {
-  res.send("Alert router is working ✅");
-});
+router.get('/getLastAlerts', last5Alerts);
 
 
 export default router;
