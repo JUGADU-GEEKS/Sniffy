@@ -129,5 +129,3 @@ export const previousAlertsById = async (req, res) => {
     });
   }
 };
-
-

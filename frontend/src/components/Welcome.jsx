@@ -1,6 +1,7 @@
 import React from 'react';
 import { Flame, Shield, AlertTriangle, ChefHat, Bell, Mail, Phone, Clock, ArrowRight } from 'lucide-react';
-import './App.css';
+import '../App.css';
+import '../styles/Welcome.css';
 
 const Welcome = ({ onNavigate }) => {
   return (

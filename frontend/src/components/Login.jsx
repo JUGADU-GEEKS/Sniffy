@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Lock, Flame } from 'lucide-react';
-import './App.css';
+import '../App.css';
 
 const Login = ({ onLogin, onNavigate }) => {
   const [formData, setFormData] = useState({

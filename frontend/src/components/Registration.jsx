@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { User, Mail, Phone, Settings, Flame } from 'lucide-react';
-import './App.css';
+import '../App.css';
 
 const Registration = ({ onRegister, onNavigate }) => {
   const [formData, setFormData] = useState({
