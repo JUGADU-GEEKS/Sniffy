@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { User, Mail, Phone, Settings, Flame } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { useUser } from '../context/UserContext';
 import '../App.css';
 
-const Registration = ({ onRegister, onNavigate }) => {
+const Registration = () => {
+  const navigate = useNavigate();
+  const { handleRegistration } = useUser();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -16,7 +20,8 @@ const Registration = ({ onRegister, onNavigate }) => {
       alert('Please fill in all fields');
       return;
     }
-    onRegister(formData);
+    handleRegistration(formData);
+    navigate('/home');
   };
 
   const handleChange = (e) => {
@@ -96,7 +101,7 @@ const Registration = ({ onRegister, onNavigate }) => {
 
           <div className="form-footer">
             <p className="switch-form-text">
-              Already have an account? <a href="#" onClick={(e) => { e.preventDefault(); onNavigate('login'); }}>Login here</a>
+              Already have an account? <a href="#" onClick={(e) => { e.preventDefault(); navigate('/login'); }}>Login here</a>
             </p>
           </div>
         </form>

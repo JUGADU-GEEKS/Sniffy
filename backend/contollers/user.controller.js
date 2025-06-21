@@ -96,10 +96,10 @@ export const previousAlertsById = async (req, res) => {
   const { id: deviceCode } = req.params;
 
   try {
-    const user = await User                       // fetch just the alerts
+    const user = await User                       
       .findOne({ deviceCode })
       .select('alerts')
-      .lean();                                    // plain JS object
+      .lean();                                    
 
     if (!user) {
       return res.status(404).json({

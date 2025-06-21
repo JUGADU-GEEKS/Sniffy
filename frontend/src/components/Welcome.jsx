@@ -1,9 +1,12 @@
 import React from 'react';
 import { Flame, Shield, AlertTriangle, ChefHat, Bell, Mail, Phone, Clock, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import '../App.css';
 import '../styles/Welcome.css';
 
-const Welcome = ({ onNavigate }) => {
+const Welcome = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="welcome-page">
       <div className="fire-background">
@@ -24,10 +27,10 @@ const Welcome = ({ onNavigate }) => {
           </div>
           <p className="hero-subtitle">Your Smart LPG Safety System</p>
           <div className="hero-cta">
-            <button onClick={() => onNavigate('register')} className="cta-button primary">
+            <button onClick={() => navigate('/register')} className="cta-button primary">
               Get Started
             </button>
-            <button onClick={() => onNavigate('login')} className="cta-button secondary">
+            <button onClick={() => navigate('/login')} className="cta-button secondary">
               Login
             </button>
           </div>
@@ -149,7 +152,7 @@ const Welcome = ({ onNavigate }) => {
         <div className="cta-content">
           <h2>Ready to Enhance Your Safety?</h2>
           <p>Join thousands of households protected by LPG Guardian</p>
-          <button onClick={() => onNavigate('register')} className="cta-button primary">
+          <button onClick={() => navigate('/register')} className="cta-button primary">
             Get Started Now <ArrowRight size={20} />
           </button>
         </div>
