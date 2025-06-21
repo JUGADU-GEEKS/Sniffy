@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { User, Mail, Phone, Settings, Flame } from 'lucide-react';
+import { User, Mail, Phone, Settings, Flame, Lock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
 import '../App.css';
@@ -11,12 +11,13 @@ const Registration = () => {
     name: '',
     email: '',
     phone: '',
-    deviceId: ''
+    deviceId: '',
+    password: ''
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.phone || !formData.deviceId) {
+    if (!formData.name || !formData.email || !formData.phone || !formData.deviceId || !formData.password) {
       alert('Please fill in all fields');
       return;
     }
@@ -91,6 +92,17 @@ const Registration = () => {
               name="deviceId"
               placeholder="Device ID"
               value={formData.deviceId}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <Lock size={20} />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formData.password}
               onChange={handleChange}
             />
           </div>

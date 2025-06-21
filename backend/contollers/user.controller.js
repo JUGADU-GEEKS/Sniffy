@@ -4,11 +4,12 @@ import jwt from "jsonwebtoken"
 
 
 export const register = async (req, res) => {
+    console.log("Register endpoint hit. Request body:", req.body);
     const { deviceCode, email, phone, password } = req.body;
     try {
-        if (!deviceCode || !email || !password) {
+        if (!deviceCode || !email || !password || !phone) {
             return res.status(400).json({
-                message: "Something is Missing",
+                message: "All fields are required",
                 success: false
             })
         }
@@ -25,10 +26,16 @@ export const register = async (req, res) => {
         })
     } catch (e) {
         console.log(e.message)
+        return res.status(500).json({
+            message: "Server error during registration.",
+            error: e.message,
+            success: false
+        });
     }
 }
 
 export const login = async (req, res) => {
+    console.log("Login endpoint hit. Request body:", req.body);
     const { email, password } = req.body;
     try {
         if (!email || !password) {
@@ -55,19 +62,26 @@ export const login = async (req, res) => {
             userid: user._id
         }
         const token = await jwt.sign(tokenData, process.env.JWT_SECRET, { expiresIn: '15d' })
-        user = {
+        
+        const userResponse = {
             _id: user._id,
             email: user.email,
-            deviceCode: user.deviceCode
+            deviceCode: user.deviceCode,
+            phone: user.phone
         }
+
         return res.status(200).cookie("token", token, { maxAge: 15 * 24 * 60 * 60 * 1000, httpOnly: true, sameSite: 'strict' }).json({
             message: `Welcome back`,
-            user,
+            user: userResponse,
             success: true
         })
     } catch (e) {
         console.log(e.message);
-
+        return res.status(500).json({
+            message: "Server error during login.",
+            error: e.message,
+            success: false
+        });
     }
 }
 
@@ -128,4 +142,4 @@ export const previousAlertsById = async (req, res) => {
       success : false,
     });
   }
-};
+};``

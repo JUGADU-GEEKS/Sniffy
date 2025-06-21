@@ -1,17 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { User } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
+import axios from 'axios';
 
 const ProfilePage = () => {
   const navigate = useNavigate();
   const { user } = useUser();
-  const riskHistory = [
-    { date: '2024-06-10', type: 'Gas Leak', severity: 'Medium', resolved: true },
-    { date: '2024-06-05', type: 'High Temperature', severity: 'Low', resolved: true },
-    { date: '2024-05-28', type: 'Flame Detection', severity: 'High', resolved: true },
-    { date: '2024-05-15', type: 'Gas Leak', severity: 'Low', resolved: true }
-  ];
+  const [alerts, setAlerts] = useState([]);
+
+  useEffect(() => {
+    if (!user?.deviceCode) return;
+
+    const fetchAlerts = async () => {
+      try {
+        const response = await axios.get(`/api/user/allAlertsById/${user.deviceCode}`);
+        if (response.data.success) {
+          // Convert the dictionary of alerts to an array
+          const alertsArray = Object.values(response.data.alerts);
+          setAlerts(alertsArray);
+        }
+      } catch (error) {
+        console.error('Failed to fetch alert history:', error);
+      }
+    };
+
+    fetchAlerts();
+  }, [user]);
 
   const FireBackground = () => (
     <div className="static-background">
@@ -36,30 +51,34 @@ const ProfilePage = () => {
             <User size={64} />
           </div>
           <div className="profile-details">
-            <h2>{user?.name}</h2>
+            <h2>{user?.name || user?.email}</h2>
             <p>{user?.email}</p>
             <p>{user?.phone}</p>
-            <p>Device: {user?.deviceId}</p>
+            <p>Device: {user?.deviceCode}</p>
           </div>
         </div>
 
         <div className="risk-history">
           <h3>Risk History</h3>
           <div className="history-list">
-            {riskHistory.map((incident, index) => (
-              <div key={index} className="history-item">
-                <div className="history-date">{incident.date}</div>
-                <div className="history-details">
-                  <h4>{incident.type}</h4>
-                  <span className={`severity ${incident.severity.toLowerCase()}`}>
-                    {incident.severity} Risk
-                  </span>
+            {alerts.length > 0 ? (
+              alerts.map((incident, index) => (
+                <div key={index} className="history-item">
+                  <div className="history-date">{new Date(incident.timestamp).toLocaleDateString()}</div>
+                  <div className="history-details">
+                    <h4>{incident.type}</h4>
+                    <span className="severity medium">
+                      {incident.message}
+                    </span>
+                  </div>
+                  <div className="history-status resolved">
+                    Resolved
+                  </div>
                 </div>
-                <div className={`history-status ${incident.resolved ? 'resolved' : 'pending'}`}>
-                  {incident.resolved ? 'Resolved' : 'Pending'}
-                </div>
-              </div>
-            ))}
+              ))
+            ) : (
+              <p>No risk history found.</p>
+            )}
           </div>
         </div>
       </div>

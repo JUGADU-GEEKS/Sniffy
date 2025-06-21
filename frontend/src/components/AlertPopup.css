@@ -1,0 +1,60 @@
+.alert-popup-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 350px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 16px;
+  z-index: 1000;
+  border-top: 4px solid #f59e0b; /* Amber 500 */
+}
+
+.alert-popup-container h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  color: #1f2937; /* Gray 800 */
+}
+
+.alert-popup-container .close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #6b7280; /* Gray 500 */
+}
+
+.alert-popup-container .alert-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #e5e7eb; /* Gray 200 */
+}
+
+.alert-popup-container .alert-item:last-child {
+  border-bottom: none;
+}
+
+.alert-popup-container .alert-item svg {
+  color: #f97316; /* Orange 500 */
+}
+
+.alert-popup-container .alert-details strong {
+  color: #1f2937; /* Gray 800 */
+}
+
+.alert-popup-container .alert-details p {
+  margin: 4px 0;
+  color: #4b5563; /* Gray 600 */
+}
+
+.alert-popup-container .alert-details small {
+  color: #9ca3af; /* Gray 400 */
+  font-size: 0.8rem;
+} 

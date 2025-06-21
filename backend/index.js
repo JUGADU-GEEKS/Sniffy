@@ -9,7 +9,7 @@ import userRouter from './routes/user.routes.js'
 import alertRouter from './routes/alert.routes.js'
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4001;
 const corsOptions = {
     origin: '*',
 }
@@ -26,8 +26,8 @@ app.get("/", (req,res)=>{
     })
 })
 
-app.use('/user', userRouter)
-app.use('/alert', alertRouter)
+app.use('/api/user', userRouter)
+app.use('/api/alert', alertRouter)
 
 app.listen(port, ()=>{
     connectDB();
