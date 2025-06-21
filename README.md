@@ -1,8 +1,9 @@
-# 🔥 LPG Detection & Alert System 🚨
+<h1 align="center">🔥 <em>LPG Detection & Alert System</em> 🚨</h1>
+
 
 <div align="center">
 
-![LPG Detection Banner](https://via.placeholder.com/800x200/FF6B6B/FFFFFF?text=🔥+LPG+DETECTION+%26+ALERT+SYSTEM+🚨)
+![LPG Detection Banner](/images/banner.jpg)
 
 <p align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=FF6B6B&center=true&vCenter=true&width=600&lines=IoT-Powered+Safety+System;Real-Time+Gas+%26+Flame+Detection;Smart+Alert+Notifications;MERN+Stack+Integration" alt="Typing SVG" />
@@ -20,9 +21,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/stars/your-username/lpg-alert-system?style=social" />
-  <img src="https://img.shields.io/github/forks/your-username/lpg-alert-system?style=social" />
-  <img src="https://img.shields.io/github/watchers/your-username/lpg-alert-system?style=social" />
+  <img src="https://img.shields.io/github/stars/JUGADU-GEEKS/Sniffy?style=social" />
+  <img src="https://img.shields.io/github/forks/JUGADU-GEEKS/Sniffy?style=social" />
+  <img src="https://img.shields.io/github/watchers/JUGADU-GEEKS/Sniffy?style=social" />
 </p>
 
 ---
@@ -48,7 +49,7 @@
 
 ### 📱 **Smart Notifications**
 - **Email Alerts** with detailed reports
-- **SMS Notifications** via Twilio
+- **SMS Notifications** via Twilio ( In Future )
 - **Visual Indicators** with LED status
 - **Audio Alarms** for immediate attention
 
@@ -62,14 +63,12 @@
 
 <div align="center">
 
-| 🔧 **System in Action** | 📱 **SMS Alert Demo** | 📧 **Email Notification** |
-|:----------------------:|:---------------------:|:-------------------------:|
-| ![Working Demo](images/working.gif) | ![SMS Alert](images/sms.jpg) | ![Email Alert](images/email.png) |
+| 🔧 **System in Action** | 📧 **Email Notification** |
+|:----------------------:|:-------------------------:|
+| ![Working Demo](/images/connections.jpg) | ![Email Alert](https://drive.google.com/file/d/1x7bx49cocXnx_9oXbKW9Ys4AsVkq2HMm/view?usp=drive_link) |
 | *Live monitoring dashboard* | *Instant SMS alerts* | *Detailed email reports* |
 
 </div>
-
-> 📝 **Note:** Replace the image paths above with your actual demo images in the `/images` folder.
 
 <div align="center">
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
@@ -82,7 +81,7 @@
 | Feature | Description | Status |
 |---------|-------------|--------|
 | 🔍 **Live Monitoring** | Real-time gas and flame detection | ✅ Active |
-| 🚨 **Instant Alerts** | Email + SMS notifications | ✅ Active |
+| 🚨 **Instant Alerts** | Email notifications | ✅ Active |
 | 🎛️ **Smart Dashboard** | Web-based control panel | ✅ Active |
 | 🍳 **Cooking Mode** | 20-minute alert disable | ✅ Active |
 | 📊 **Alert History** | MongoDB-stored logs | ✅ Active |
@@ -96,33 +95,7 @@
 
 ## 🏗️ **System Architecture**
 
-<div align="center">
-
-```mermaid
-graph TD
-    A[🔧 ESP8266 Controller] --> B[🔍 MQ2 Gas Sensor]
-    A --> C[🔥 Flame Sensor]
-    A --> D[🔊 Buzzer Alert]
-    A --> E[💡 LED Indicators]
-    A --> F[📶 WiFi Module]
-    
-    F --> G[☁️ Backend API]
-    G --> H[🗄️ MongoDB Atlas]
-    G --> I[📧 Email Service]
-    G --> J[📱 SMS Service]
-    
-    G --> K[🌐 Web Dashboard]
-    K --> L[📊 Real-time Status]
-    K --> M[📈 Alert History]
-    K --> N[⚙️ Device Control]
-    
-    style A fill:#ff6b6b
-    style G fill:#4ecdc4
-    style K fill:#45b7d1
-```
-
-</div>
-
+<pre> ```mermaid graph TD A[🔧 ESP8266 Controller] --> B[🔍 MQ2 Gas Sensor] A --> C[🔥 Flame Sensor] A --> D[🔊 Buzzer Alert] A --> E[💡 LED Indicators] A --> F[📶 WiFi Module] F --> G[☁️ Backend API] G --> H[🗄️ MongoDB Atlas] G --> I[📧 Email Service] G --> J[📱 SMS Service] G --> K[🌐 Web Dashboard] K --> L[📊 Real-time Status] K --> M[📈 Alert History] K --> N[⚙️ Device Control] style A fill:#ff6b6b style G fill:#4ecdc4 style K fill:#45b7d1 ``` </pre>
 ---
 
 ## 🛠️ **Technology Stack**
