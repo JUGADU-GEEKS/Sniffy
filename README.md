@@ -580,14 +580,14 @@ Thanks to all our amazing contributors! 🎉
 <a href="https://github.com/KunnuSherry">GitHub</a> |
 </td>
 <td align="center" width="33%">
-<img src="https://github.com/sangya-25" width="100px" style="border-radius: 50%"/>
+<img src="https://github.com/sangya-25.png" width="100px" style="border-radius: 50%"/>
 <br><strong>Sangya Ojha</strong>
 <br><em>🌐 Frontend & UI</em>
 <br>
 <a href="https://github.com/sangya-25">GitHub</a> |
 </td>
 <td align="center" width="33%">
-<img src="https://github.com/dhruv0050" width="100px" style="border-radius: 50%"/>
+<img src="https://github.com/dhruv0050.png" width="100px" style="border-radius: 50%"/>
 <br><strong>Dhruv Sharma</strong>
 <br><em>💻 Frontend & Backend</em>
 <br>
