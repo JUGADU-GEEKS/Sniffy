@@ -20,7 +20,7 @@ const useLiveStatus = (deviceCode) => {
 
     const fetchStatus = async () => {
       try {
-        const response = await axios.get(`/api/user/liveStatusById/${deviceCode}`);
+        const response = await axios.get(`https://sniffy.onrender.com/user/liveStatusById/${deviceCode}`);
         if (response.data.success) {
           setLiveStatus(response.data.liveStatus);
         }
@@ -118,7 +118,6 @@ const HomePage = () => {
             </div>
             <h3>Emergency Protocols</h3>
             <ul>
-              <li>System automatically shuts gas valve during high risk</li>
               <li>Instant WhatsApp & email alerts sent</li>
               <li>Audible alarms activate immediately</li>
               <li>LED indicators show current status</li>

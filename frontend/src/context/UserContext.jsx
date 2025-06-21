@@ -19,7 +19,7 @@ export const UserProvider = ({ children }) => {
     setIsLoading(true);
     try {
       const { deviceId, email, phone, password } = formData;
-      const response = await axios.post('/api/user/register', {
+      const response = await axios.post('https://sniffy.onrender.com/user/register', {
         deviceCode: deviceId,
         email,
         phone,
@@ -58,7 +58,7 @@ export const UserProvider = ({ children }) => {
   const handleLogin = async (formData) => {
     setIsLoading(true);
     try {
-      const response = await axios.post('/api/user/login', formData);
+      const response = await axios.post('https://sniffy.onrender.com/user/login', formData);
       if (response.data.success) {
         setUser(response.data.user);
       } else {

@@ -14,7 +14,7 @@ const ProfilePage = () => {
 
     const fetchAlerts = async () => {
       try {
-        const response = await axios.get(`/api/user/allAlertsById/${user.deviceCode}`);
+        const response = await axios.get(`https://sniffy.onrender.com/user/allAlertsById/${user.deviceCode}`);
         if (response.data.success) {
           // Convert the dictionary of alerts to an array
           const alertsArray = Object.values(response.data.alerts);

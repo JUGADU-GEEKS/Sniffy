@@ -26,8 +26,8 @@ app.get("/", (req,res)=>{
     })
 })
 
-app.use('/api/user', userRouter)
-app.use('/api/alert', alertRouter)
+app.use('/user', userRouter)
+app.use('/alert', alertRouter)
 
 app.listen(port, ()=>{
     connectDB();
