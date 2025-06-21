@@ -1,4 +1,8 @@
 <h1 align="center">🔥 <em>LPG Detection & Alert System</em> 🚨</h1>
+<p align="center">
+  🌐 <a href="https://sniffy-ten.vercel.app/" target="_blank">Live Demo</a>
+</p>
+
 
 
 <div align="center">
@@ -65,7 +69,7 @@
 
 | 🔧 **System in Action** | 📧 **Email Notification** |
 |:----------------------:|:-------------------------:|
-| ![Working Demo](/images/connections.jpg) | ![Email Alert](https://drive.google.com/file/d/1x7bx49cocXnx_9oXbKW9Ys4AsVkq2HMm/view?usp=drive_link) |
+| ![Working Demo](/images/connections.jpg) | ![Email Alert](/images/email.gif) |
 | *Live monitoring dashboard* | *Instant SMS alerts* | *Detailed email reports* |
 
 </div>
@@ -95,8 +99,12 @@
 
 ## 🏗️ **System Architecture**
 
-<pre> ```mermaid graph TD A[🔧 ESP8266 Controller] --> B[🔍 MQ2 Gas Sensor] A --> C[🔥 Flame Sensor] A --> D[🔊 Buzzer Alert] A --> E[💡 LED Indicators] A --> F[📶 WiFi Module] F --> G[☁️ Backend API] G --> H[🗄️ MongoDB Atlas] G --> I[📧 Email Service] G --> J[📱 SMS Service] G --> K[🌐 Web Dashboard] K --> L[📊 Real-time Status] K --> M[📈 Alert History] K --> N[⚙️ Device Control] style A fill:#ff6b6b style G fill:#4ecdc4 style K fill:#45b7d1 ``` </pre>
+<div align="center">
+
+![alt text](/images/image.png)
 ---
+
+</div>
 
 ## 🛠️ **Technology Stack**
 
@@ -185,10 +193,7 @@
 
 ```bash
 # 🔽 Clone the repository
-git clone https://github.com/your-username/lpg-alert-system.git
-
-# 📁 Navigate to project directory
-cd lpg-alert-system
+git clone https://github.com/JUGADU-GEEKS/Sniffy.git
 
 # 📦 Install backend dependencies
 cd backend && npm install
@@ -211,22 +216,11 @@ MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/lpg-system
 
 # 🔐 Security
 JWT_SECRET=your_super_secret_jwt_key_here
-ENCRYPTION_KEY=your_32_character_encryption_key
 
 # 📧 Email Configuration
 EMAIL_USER=your.email@gmail.com
 EMAIL_PASS=your_app_specific_password
-EMAIL_SERVICE=gmail
 
-# 📱 SMS Configuration (Twilio)
-TWILIO_ACCOUNT_SID=your_twilio_account_sid
-TWILIO_AUTH_TOKEN=your_twilio_auth_token
-TWILIO_PHONE_NUMBER=+1234567890
-
-# 🔧 Device Configuration
-DEFAULT_DEVICE_CODE=LPG001
-ALERT_COOLDOWN_MINUTES=5
-COOKING_MODE_DURATION=20
 ```
 
 ### 🏃‍♂️ **3. Run the Application**
@@ -236,7 +230,7 @@ COOKING_MODE_DURATION=20
 npm run dev
 
 # 🌐 Start frontend (in separate terminal)
-cd ../frontend && npm start
+cd ../frontend && npm run dev
 ```
 
 <div align="center">
@@ -244,46 +238,6 @@ cd ../frontend && npm start
 🎉 **Success!** Your LPG Detection System is now running on:
 - 🖥️ **Backend:** `http://localhost:5000`
 - 🌐 **Frontend:** `http://localhost:3000`
-
-</div>
-
----
-
-## ☁️ **Deployment Guide**
-
-<div align="center">
-
-### 🚀 **Deploy to Vercel (Recommended)**
-
-</div>
-
-1. **📤 Push to GitHub**
-   ```bash
-   git add .
-   git commit -m "🚀 Deploy LPG Alert System"
-   git push origin main
-   ```
-
-2. **🌐 Deploy on Vercel**
-   - Visit [vercel.com](https://vercel.com)
-   - Import your GitHub repository
-   - Set environment variables in dashboard
-   - Deploy! 🎉
-
-3. **✅ Verify Deployment**
-   ```bash
-   curl https://your-app.vercel.app/health
-   ```
-
-<div align="center">
-
-### 📊 **Health Check Endpoints**
-
-| Endpoint | Purpose | Response |
-|----------|---------|----------|
-| `/health` | System status | `{"status": "OK", "timestamp": "..."}` |
-| `/api/status` | API health | `{"api": "running", "database": "connected"}` |
-| `/api/alerts/test` | Alert system test | `{"email": "sent", "sms": "delivered"}` |
 
 </div>
 
@@ -304,29 +258,12 @@ Content-Type: application/json
 Authorization: Bearer <device_token>
 
 {
-  "deviceCode": "LPG001",
+  "deviceCode": "ABC",
   "alertType": "Gas",        // "Gas" | "Flame" | "Normal"
-  "sensorValue": 450,
-  "location": "Kitchen",
-  "timestamp": "2024-01-15T10:30:00Z",
   "message": "Gas leak detected! 🚨"
 }
 ```
 
-#### 📥 **Get Live Status**
-```http
-GET /api/alerts/live-status/LPG001
-Authorization: Bearer <device_token>
-
-Response:
-{
-  "status": "Normal",
-  "lastUpdate": "2024-01-15T10:29:45Z",
-  "cookingMode": false,
-  "alertCount": 3,
-  "batteryLevel": 85
-}
-```
 
 <div align="center">
 
@@ -436,38 +373,6 @@ void enableCookingMode() {
 
 ---
 
-## 🧪 **Testing & Validation**
-
-<div align="center">
-
-### 🔬 **Testing Protocols**
-
-</div>
-
-#### 🧪 **Hardware Testing**
-```bash
-# 🔍 Sensor Calibration
-./scripts/calibrate_sensors.sh
-
-# 🔊 Audio/Visual Test
-./scripts/test_alerts.sh
-
-# 📶 WiFi Connectivity Test
-./scripts/test_connectivity.sh
-```
-
-#### 🌐 **API Testing**
-```bash
-# 🚀 Run API tests
-npm run test:api
-
-# 🔍 Integration tests
-npm run test:integration
-
-# 📊 Performance tests
-npm run test:performance
-```
-
 <div align="center">
 
 ### 📋 **Test Coverage**
@@ -575,7 +480,7 @@ Have an idea? We'd love to hear it! Please include:
 
 Thanks to all our amazing contributors! 🎉
 
-<a href="https://github.com/your-username/lpg-alert-system/graphs/contributors">
+<a href="https://github.com/JUGADU-GEEKS/Sniffy/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=your-username/lpg-alert-system" />
 </a>
 
@@ -629,9 +534,9 @@ Thanks to all our amazing contributors! 🎉
 
 <div align="center">
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=your-username&repo=lpg-alert-system&show_icons=true&theme=radical)
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=JUGADU-GEEKS&repo=Sniffy&show_icons=true&theme=radical)
 
-![Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=your-username&theme=radical&layout=compact)
+![Languages](https://github-readme-stats.vercel.app/api/top-langs/?JUGADU-GEEKS&theme=radical&layout=compact)
 
 </div>
 
@@ -652,22 +557,7 @@ Thanks to all our amazing contributors! 🎉
 <td align="center" width="25%">
 <img src="https://img.icons8.com/fluency/48/000000/github.png"/>
 <br><strong>GitHub Issues</strong>
-<br><a href="https://github.com/your-username/lpg-alert-system/issues">Report Bugs</a>
-</td>
-<td align="center" width="25%">
-<img src="https://img.icons8.com/fluency/48/000000/discord-logo.png"/>
-<br><strong>Discord</strong>
-<br><a href="https://discord.gg/your-invite">Join Community</a>
-</td>
-<td align="center" width="25%">
-<img src="https://img.icons8.com/fluency/48/000000/mail.png"/>
-<br><strong>Email</strong>
-<br><a href="mailto:support@lpg-system.com">Get Support</a>
-</td>
-<td align="center" width="25%">
-<img src="https://img.icons8.com/fluency/48/000000/document.png"/>
-<br><strong>Documentation</strong>
-<br><a href="https://docs.lpg-system.com">Read Docs</a>
+<br><a href="https://github.com/JUGADU-GEEKS/Sniffy/issues">Report Bugs</a>
 </td>
 </tr>
 </table>
@@ -683,28 +573,25 @@ Thanks to all our amazing contributors! 🎉
 <table>
 <tr>
 <td align="center" width="33%">
-<img src="https://github.com/kunal-sharma.png" width="100px" style="border-radius: 50%"/>
+<img src="https://github.com/KunnuSherry.png" width="100px" style="border-radius: 50%"/>
 <br><strong>Kunal Sharma</strong>
-<br><em>🔧 Hardware & IoT</em>
+<br><em>🔧 Hardware & IoT and Backend</em>
 <br>
-<a href="https://github.com/kunal-sharma">GitHub</a> |
-<a href="https://linkedin.com/in/kunal-sharma">LinkedIn</a>
+<a href="https://github.com/KunnuSherry">GitHub</a> |
 </td>
 <td align="center" width="33%">
-<img src="https://github.com/sangya-ojha.png" width="100px" style="border-radius: 50%"/>
+<img src="https://github.com/sangya-25" width="100px" style="border-radius: 50%"/>
 <br><strong>Sangya Ojha</strong>
-<br><em>🌐 Backend & API</em>
+<br><em>🌐 Frontend & UI</em>
 <br>
-<a href="https://github.com/sangya-ojha">GitHub</a> |
-<a href="https://linkedin.com/in/sangya-ojha">LinkedIn</a>
+<a href="https://github.com/sangya-25">GitHub</a> |
 </td>
 <td align="center" width="33%">
-<img src="https://github.com/dhruv-sharma.png" width="100px" style="border-radius: 50%"/>
+<img src="https://github.com/dhruv0050" width="100px" style="border-radius: 50%"/>
 <br><strong>Dhruv Sharma</strong>
-<br><em>💻 Frontend & UI</em>
+<br><em>💻 Frontend & Backend</em>
 <br>
-<a href="https://github.com/dhruv-sharma">GitHub</a> |
-<a href="https://linkedin.com/in/dhruv-sharma">LinkedIn</a>
+<a href="https://github.com/dhruv0050">GitHub</a> |
 </td>
 </tr>
 </table>
@@ -727,40 +614,3 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 </div>
 
----
-
-## 🙏 **Acknowledgments**
-
-<div align="center">
-
-### 💝 **Special Thanks**
-
-- 🏫 **Our University** - For providing resources and support
-- 🧑‍🏫 **Our Mentors** - For guidance and expertise
-- 🌐 **Open Source Community** - For amazing tools and libraries
-- 👥 **Beta Testers** - For valuable feedback and testing
-- 🏢 **Industry Partners** - For collaboration opportunities
-
-</div>
-
----
-
-<div align="center">
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-
-### 🚀 **Ready to make your home safer?**
-
-<p>
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=16&duration=2000&pause=1000&color=FF6B6B&center=true&vCenter=true&width=600&lines=⭐+Star+this+repo+if+you+found+it+helpful!;🍴+Fork+and+contribute+to+make+it+better!;📢+Share+with+friends+and+family!" alt="Call to Action" />
-</p>
-
-**[⭐ Star this repo](https://github.com/your-username/lpg-alert-system)** • **[🍴 Fork & Contribute](https://github.com/your-username/lpg-alert-system/fork)** • **[📖 Read Documentation](https://docs.lpg-system.com)**
-
----
-
-<img src="https://komarev.com/ghpvc/?username=lpg-alert-system&label=Project%20Views&color=brightgreen" alt="Project Views" />
-
-*© 2024 LPG Detection & Alert System. Made with 💝 by passionate developers.*
-
-</div>
