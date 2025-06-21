@@ -10,7 +10,7 @@ const AlertPopup = () => {
   useEffect(() => {
     const fetchAlerts = async () => {
       try {
-        const response = await axios.get('https://sniffy.onrender.com/alert/last5Alerts');
+        const response = await axios.get('https://sniffy.onrender.com/alert/getLastAlerts');
         if (response.data.success) {
           setAlerts(response.data.alerts);
         }
