@@ -8,6 +8,7 @@ import HomePage from './components/HomePage';
 import ProfilePage from './components/ProfilePage';
 import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
+import Team from './components/Team';
 
 const App = () => {
   return (
@@ -32,6 +33,12 @@ const App = () => {
                 <ProtectedRoute>
                   <ProfilePage />
                 </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/team" 
+              element={
+                <Team/>
               } 
             />
             <Route path="*" element={<Navigate to="/" replace />} />

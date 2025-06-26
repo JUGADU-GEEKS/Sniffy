@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { 
-  Flame, 
-  Shield, 
-  AlertTriangle, 
-  User, 
+import {
+  Flame,
+  Shield,
+  AlertTriangle,
+  User,
   ChefHat,
   Volume2
 } from 'lucide-react';
@@ -43,7 +43,7 @@ const HomePage = () => {
   const { user } = useUser();
   const liveStatus = useLiveStatus(user?.deviceCode);
   const mainRef = useRef();
-  
+
   const toggleCookingMode = () => {
     // Simulate cooking mode activation
     console.log('Cooking mode activated for 20 minutes');
@@ -58,14 +58,17 @@ const HomePage = () => {
   return (
     <div className="page home-page" ref={mainRef}>
       <FireBackground />
-      
+
       {/* Header */}
       <header className="header">
         <div className="header-content">
           <div className="logo">
             <Flame size={32} />
-            <span>LPG Guardian</span>
+            <span>Sniffy</span>
           </div>
+          <button className="team_button" onClick={() => navigate('/team')}>
+            Meet the team
+          </button>
           <div className="user-info">
             <span>Welcome, {user?.name || user?.email}</span>
             <button onClick={() => navigate('/profile')} className="profile-btn">
@@ -98,7 +101,7 @@ const HomePage = () => {
           <h2>Safety Guidelines & Controls</h2>
           <p>Essential precautions and emergency controls for your LPG system</p>
         </div>
-        
+
         <div className="prevention-grid">
           <div className="prevention-item cooking-mode">
             <div className="prevention-icon">
@@ -111,7 +114,7 @@ const HomePage = () => {
               Activate (20 min)
             </button>
           </div>
-          
+
           <div className="prevention-item">
             <div className="prevention-icon">
               <AlertTriangle size={32} />
@@ -123,7 +126,7 @@ const HomePage = () => {
               <li>LED indicators show current status</li>
             </ul>
           </div>
-          
+
           <div className="prevention-item">
             <div className="prevention-icon">
               <Shield size={32} />

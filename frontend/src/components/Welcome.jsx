@@ -23,7 +23,7 @@ const Welcome = () => {
         <div className="hero-content">
           <div className="hero-logo">
             <Flame size={64} className="header-flame" />
-            <h1>LPG Guardian</h1>
+            <h1>Sniffy</h1>
           </div>
           <p className="hero-subtitle">Your Smart LPG Safety System</p>
           <div className="hero-cta">
@@ -39,7 +39,7 @@ const Welcome = () => {
 
       {/* Features Section */}
       <section className="features-section">
-        <h2>Why Choose LPG Guardian?</h2>
+        <h2>Why Choose Sniffy?</h2>
         <div className="features-grid">
           <div className="feature-card">
             <Shield size={40} />
