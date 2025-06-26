@@ -1,8 +1,7 @@
 import React from 'react';
-import { User, ExternalLink, Github, Linkedin } from 'lucide-react';
+import { ExternalLink, Github, Linkedin } from 'lucide-react';
 import '../styles/Team.css';
 
-// Import team member images
 import kunalImage from '../../public/kunal.png';
 import sangyaImage from '../../public/sangya.png';
 import dhruvImage from '../../public/dhruv.jpg';
@@ -37,16 +36,6 @@ function Team() {
 
     return (
         <div className="team-container">
-            {/* Header
-            <div className="team-header">
-                <div className="header-left">
-                    <div className="header-icon">
-                        <span>🔥</span>
-                    </div>
-                    <h1 className="header-title">Sniffy</h1>
-                </div>
-            </div> */}
-
             {/* Main Content */}
             <div className="main-content">
                 {/* Title Section */}
